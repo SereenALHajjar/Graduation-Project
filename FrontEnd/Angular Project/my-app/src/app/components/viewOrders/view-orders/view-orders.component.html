@@ -1,0 +1,215 @@
+<div class="container-fluid text-center " >
+  
+  <div class="row">
+    
+    <div class="col-lg-12 ">
+     
+    <ng-container *ngFor ="let post of postsList ">
+  
+    
+<!-- order -->
+        <div   class="card pt-3 mt-3 pe-2 shadow " style="background-color: F8F8F8;unicode-bidi: embed;">
+          <!-- <div class="card-header">
+            Featured
+          </div> -->
+          <div class="card-body  text-end " >
+            <h5 class="card-title " [routerLink]="['/myPost',post.post_id]" style='direction:rtl;unicode-bidi: embed;'>{{post.title}} </h5>
+            <p class="card-text " [routerLink]="['/myPost',post.post_id]" style='direction:rtl;unicode-bidi: embed;'> {{post.description}} </p>
+          
+              
+              <div class="row justify-content-end">
+                <div class="col-lg-3 col-md-4 col-sm-3  order-sm-4 order-xs-2 order-2" style="max-width:50%">
+                  <span class="pe-2 text-custom-color" [routerLink]="['/userprofile',post.post_id]"  > {{ post.userName }}</span>
+                  <span class="pe-2 text-custom-color"> </span>
+                  <i class="fa fa-user-o icon"  aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-3 order-sm-3 order-xs-1 order-1"style="max-width:50%">
+                  <span class="pe-2 text-custom-color"> {{getDurationDate(post.pub_date)}} منذ </span>
+                  <i class="fa fa-clock-o icon" aria-hidden="true"></i>           
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 pl-1   order-sm-2 order-xs-4  order-4"style="max-width:50%"> 
+                  <!-- <span class="pe-2 text-custom-color"> {{post.numberOfViews}} </span>
+                  <i class="fa fa-eye icon" aria-hidden="true"></i> -->
+                  <span class="pe-2 text-custom-color"> {{post.numberOfOrders}} </span>
+                  <i class="fa fa-comment-o icon"  title="عدد الحلول المقدمة" aria-hidden="true"></i>
+                  
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3   order-sm-1 order-xs-3 order-3"style="max-width:50%">
+                  <!-- <span class="pe-2 text-custom-color"> {{post.numberOfOrders}} </span>
+                  <i class="fa fa-comment-o icon" aria-hidden="true"></i> -->
+                </div>
+              </div>
+           
+            
+            <div class="row justify-content-end pt-4 ">
+              <ng-container *ngFor="let tag of post.type" >
+              <div class=" col-lg-2 col-6 col-md-6  mt-3">
+                <span (click)="searchByTag(tag)" class="tag rounded">{{tag}} </span>
+              </div>
+            </ng-container>
+              <!-- <div class="col-lg-2 col-6 col-md-6 mt-3">
+                <span class="tag rounded">{{tag}} </span>
+              </div>
+              <div class="col-lg-3 col-6 col-md-6 mt-3">
+                <span class="tag rounded"> {{tag}} </span>
+            </div> -->
+            </div>
+
+          
+            
+     
+          <div class="row justify-content-end pt-1 mt-2">
+            <div class="col-lg-12  row justify-content-end pb-1">
+              <div *ngIf="post.avgOfOreders>0" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-2 order-md-2 order-1 order-lg-2" style="color:DB3332;max-width: fit-content; ">متوسط العروض المقدمة </div>
+              <div *ngIf="post.avgOfOreders>0" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-1 order-md-1 order-2 order-lg-1" style="color:DB3332;">{{post.avgOfOreders | number:'1.0-2'}} SYR</div>
+              <div *ngIf="!post.avgOfOreders" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-2 order-md-2 order-1 order-lg-2" style="color:DB3332;max-width: fit-content; ">لا يوجد عروض مقدمة </div>
+              <div *ngIf="!post.avgOfOreders" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-1 order-md-1 order-2 order-lg-1" style="color:DB3332;"></div>
+            </div>
+          </div>              
+          <div class=" row justify-content-end pt-3 pb-3">
+            <div class="col-auto md-auto sm-auto me-auto  order-1">
+              <span mat-button (click)="openDialog(post)"  class="px-2 btn btn-primary  shadow-sm  rounded-3">قدم حلك   </span>
+              <!-- <span class="px-2"><a href="#" class="btn btn-primary text-left shadow-sm saveorder rounded-3 ">احفظ الخدمة </a></span>  -->
+            
+            </div>  
+          </div>
+                                          <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">
+              Launch demo modal
+            </button>
+          
+            <app-submit-offer ></app-submit-offer> -->
+      
+      
+      </div>
+      </div>
+    </ng-container>
+<!-- order -->
+<!-- <div class="card pt-3 mt-3 pe-2 shadow " style="background-color: F8F8F8;">
+  
+  <div class="card-body  text-end " >
+    <h5 class="card-title ">تصميم واجهة مستخدم و تجربة مستخدم (UX/UI) </h5>
+    <p class="card-text ">مطلوب مصمم واجهة مستخدم ذو خبرة و مشاريع سابقة لمعل واجهة ويب للتجارة الالكترونية بحوالي 20 صفحة </p>
+  
+      
+      <div class="row justify-content-end">
+        <div class="col-lg-3 col-md-4 col-sm-3  order-sm-4 order-xs-2 order-2" style="max-width:50%">
+          <span class="pe-2 text-custom-color">محمد محمد</span>
+          <i class="fa fa-user-o icon" aria-hidden="true"></i>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-3  order-sm-3 order-xs-1 order-1"style="max-width:50%">
+          <span class="pe-2 text-custom-color">منذ 25د</span>
+          <i class="fa fa-clock-o icon" aria-hidden="true"></i>           
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3 pl-1   order-sm-2 order-xs-4  order-4"style="max-width:50%"> 
+          <span class="pe-2 text-custom-color">50</span>
+          <i class="fa fa-eye icon" aria-hidden="true"></i>
+          
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3   order-sm-1 order-xs-3 order-3"style="max-width:50%">
+          <span class="pe-2 text-custom-color">10</span>
+          <i class="fa fa-comment-o icon" aria-hidden="true"></i>
+        </div>
+      </div>
+    
+    <div class="row justify-content-end pt-4 ">
+      <div class="col-lg-2 col-6 col-md-6 mt-3">
+        <span class="tag rounded">web</span>
+        
+      </div>
+      <div class="col-lg-2 col-6 col-md-6 mt-3">
+        <span class="tag rounded">figma</span>
+      </div>
+      <div class="col-lg-3 col-6 col-md-6 mt-3">
+        <span class="tag rounded">12/1/2020</span>
+    </div>
+    </div>
+    
+
+  <div class="row justify-content-end pt-1 mt-2">
+    <div class="col-lg-12  row justify-content-end pb-1">
+      <div class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-2 order-md-2 order-1 order-lg-2" style="color:DB3332;max-width: fit-content; ">متوسط عدد العروض المقدمة </div>
+      <div class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-1 order-md-1 order-2 order-lg-1" style="color:DB3332;">500 SYR</div>
+    </div>
+  </div>              
+  <div class=" row justify-content-end pt-3 pb-3">
+    <div class="col-auto md-auto sm-auto me-auto  order-1">
+      <span class="px-2"><a href="#" class="btn btn-primary  shadow-sm  rounded-3">قدم عرضك  </a></span>
+      <span class="px-2"><a href="#" class="btn btn-primary text-left shadow-sm saveorder rounded-3 ">احفظ الخدمة </a></span> 
+    
+    </div>  
+  </div>
+
+</div>
+</div> -->
+<!-- order -->
+<!-- <div class="card pt-3 mt-3 pe-2 shadow " style="background-color: F8F8F8;">
+  
+  <div class="card-body  text-end " >
+    <h5 class="card-title ">تصميم واجهة مستخدم و تجربة مستخدم (UX/UI) </h5>
+    <p class="card-text ">مطلوب مصمم واجهة مستخدم ذو خبرة و مشاريع سابقة لمعل واجهة ويب للتجارة الالكترونية بحوالي 20 صفحة </p>
+  
+      
+      <div class="row justify-content-end">
+        <div class="col-lg-3 col-md-4 col-sm-3  order-sm-4 order-xs-2 order-2" style="max-width:50%">
+          <span class="pe-2 text-custom-color">محمد محمد</span>
+          <i class="fa fa-user-o icon" aria-hidden="true"></i>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-3  order-sm-3 order-xs-1 order-1"style="max-width:50%">
+          <span class="pe-2 text-custom-color">منذ 25د</span>
+          <i class="fa fa-clock-o icon" aria-hidden="true"></i>           
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3 pl-1   order-sm-2 order-xs-4  order-4"style="max-width:50%"> 
+          <span class="pe-2 text-custom-color">50</span>
+          <i class="fa fa-eye icon" aria-hidden="true"></i>
+          
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3   order-sm-1 order-xs-3 order-3"style="max-width:50%">
+          <span class="pe-2 text-custom-color">10</span>
+          <i class="fa fa-comment-o icon" aria-hidden="true"></i>
+        </div>
+      </div>
+    
+    <div class="row justify-content-end pt-4 ">
+      <div class="col-lg-2 col-6 col-md-6 mt-3">
+        <span class="tag rounded">web</span>
+        
+      </div>
+      <div class="col-lg-2 col-6 col-md-6 mt-3">
+        <span class="tag rounded">figma</span>
+      </div>
+      <div class="col-lg-3 col-6 col-md-6 mt-3">
+        <span class="tag rounded">12/1/2020</span>
+    </div>
+    </div>
+    
+
+  <div class="row justify-content-end pt-1 mt-2">
+    <div class="col-lg-12  row justify-content-end pb-1">
+      <div class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-2 order-md-2 order-1 order-lg-2" style="color:DB3332;max-width: fit-content; ">متوسط عدد العروض المقدمة </div>
+      <div class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-1 order-md-1 order-2 order-lg-1" style="color:DB3332;">500 SYR</div>
+    </div>
+  </div>              
+  <div class=" row justify-content-end pt-3 pb-3">
+    <div class="col-auto md-auto sm-auto me-auto  order-1">
+      <span class="px-2"><a href="#"  class="btn btn-primary  shadow-sm  rounded-3">قدم عرضك  </a></span>
+      <span class="px-2"><a href="#" class="btn btn-primary text-left shadow-sm saveorder rounded-3 ">احفظ الخدمة </a></span> 
+    
+    </div>  
+  </div>
+
+</div>
+</div> -->
+
+
+</div>
+
+
+<!-- <div class="col-4 d-none d-lg-block" style="background-color: blueviolet;">
+ <div></div>
+</div> -->
+</div>
+<br>
+
+
+</div>

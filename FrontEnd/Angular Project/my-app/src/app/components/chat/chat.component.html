@@ -1,0 +1,116 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container " style="height: 1000px;">
+
+    <!-- <i class="bi bi-search"></i> -->
+    <!-- Page header start -->
+    <div class="page-title">
+        <div class="row gutters">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 text-end">                
+                <h5 class="title" style=" font-weight: 700;font-size: 18px;line-height: 33px;">محادثاتك</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Page header end -->
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+
+        <!-- Row start -->
+        <div class="row gutters">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <div class="card m-0">
+
+                    <!-- Row start -->
+                    <div class="row no-gutters" style="background: #F8F8F8;
+                    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+                    border-radius: 30px;">
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                            <div class="selected-user" style="text-align: right;  border-radius: 50px;">
+                               {{userName}}
+                            </div>
+                            <div class="chat-container">
+                                <ul class="chat-box chatContainerScroll">
+                                    <li *ngFor="let msg of messageList" [ngClass]="{chatleft: msg.mine , chatright:!msg.mine}">
+                                        <!-- *ngFor="let msg of messageList" c" -->
+                                       
+                                            <div class="chat-avatar" *ngIf="msg.mine">
+                                                <img src="././assets/download (1).jpg" alt="Retail Admin" *ngIf="msg.mine">
+                                                <div class="chat-name" *ngIf="msg.mine">{{userName}}</div>
+                                            </div>
+                                            <div class="chat-text" style="background: #ffffff;
+                                            border-radius: 50px;" *ngIf="msg.mine">{{msg.message}}</div>
+                                            <div class="chat-hour" *ngIf="msg.mine">{{msg.date}} <span class="fa fa-check-circle"></span></div>
+                                        
+                                    
+                                    
+                                        
+                                            <div class="chat-hour" *ngIf="!msg.mine">{{msg.date}} <span class="fa fa-check-circle"></span></div>
+                                            <div class="chat-text" *ngIf="!msg.mine" style="background: #D7D7D7; 
+                                            border-radius: 50px;">{{msg.message}}</div>
+                                            <div class="chat-avatar" *ngIf="!msg.mine">
+                                                <img src="././assets/download (1).jpg" alt="Retail Admin">
+                                               
+                                            </div>
+                                </ul>
+                                <div class=" d-flex justify-content-start align-items-center p-3" style="position :fixed">
+                                    <button class="btn" (click)="sendMessage()">أرسل</button>
+                                    <textarea class="form-control" style="text-align: end;" rows="2" placeholder="اكتب رسالتك هنا..." [(ngModel)]="message"></textarea>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+                            <div class="users-container " style="box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+                            border-radius: 30px;">
+                                <div class="chat-search-box ">
+                                    <!-- <div class="" style="text-align: right;  border-radius: 50px; background-color: aquamarine;">
+                                        محادثاتك
+                                     </div> -->
+                                     
+                                    <div class="input-group">
+                                        <i class="bi bi-search"></i>
+                                        <button class="btn">بحث</button>
+                                        <input class="form-control" placeholder="" style="
+                                        background: #D9D9D9;
+                                        border-radius: 30px;
+                                        text-align: right;">
+                                        
+                                        <!-- <div class="input-group-btn" >
+                                            <button class="bi bi-search"></button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <ul class="users" >
+                                    <li class="person" data-chat="person1" style="text-align: right;" *ngFor="let user of userList">
+                                        <p class="name-time">
+                                            <!-- <span class="time">15/02/2023</span> -->
+                                            
+                                            <span class="name">{{user.fname}} {{user.lname}} </span>
+                                        </p>
+                                        <div class="user">
+                                            <span>&nbsp;&nbsp;&nbsp;</span>
+                                            <img src="././assets/download (1).jpg" alt="Retail Admin">
+                                            <span class=""></span>
+                                        </div>
+                                        
+                                    </li>
+                                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row end -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Row end -->
+
+    </div>
+    <!-- Content wrapper end -->
+
+</div>

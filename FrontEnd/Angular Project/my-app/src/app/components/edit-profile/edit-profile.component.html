@@ -1,0 +1,322 @@
+<div class="container-fluid">
+    <div class="container " style=" margin-top: 40px;  overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+                border-radius: 20px;
+                width: 450px;
+                height: 1000px;">
+    
+    <form    [formGroup]=" editForm" (Submit)="Submit_edit()" (reset)="Delte_edit()" >
+        <div class="row ">
+            <div class="div col "></div>
+            <div class="col-7  ">
+                <h4 style="margin-top: 20px;">تعديل ملفك الشخصي   </h4>
+            </div>
+           
+        </div>
+        <!-- <div class="div row  " style="margin-left: 200px;">
+      
+        <div class="col-lg-12 col-sm-12  ">
+            <h4 style="  margin-top: 20px;"> تعديل ملفك الشخصي  </h4>
+        </div>
+    </div> -->
+    
+    
+    <!-- كود راما للصورة الأخير -->
+    
+    <!-- <div class="form-row pb-1" style="margin-left: 47%;">-->
+    
+    
+    
+    <div class="container-sm" style="position: relative;background-image: url('../../../assets/download\ \(1\).jpg'); border-radius: 50%; height: 110px; width: 110px; background-size: 100%; background-repeat: no-repeat;">
+        <input #inputEle (change)="onFileSelect($event)" type="file" [ngStyle]="{display:'none'}">
+        <img  style= " margin-left: -12px; border-radius: 50%; height: 110px; width: 110px ; border: 5px solid rgba(217, 217, 217, 1);">
+    <button (click)="inputEle.click()" style="padding: 0; border: none; background: none; left: 68%; position: absolute;top: 79%;">
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </button>
+    </div>
+    
+    <!--</div> -->
+    
+    
+    
+        <!-- <div class="row">
+    
+            <div class="wrapper" style="margin-top: 10px;">
+                <input type="file" class="my_file"
+                    style="margin: 0;padding:0; background: rgba(248, 248, 248, 1);">
+            </div>
+    
+        </div> -->
+        <div class="row  justify-content-between  " style="   margin-top: 15px;  " >
+            <div  style="margin-left: 100px;"  class="col-6   " >
+                <label>:الاسم الثاني </label>
+                
+            </div>
+            <div class="col-3  ">
+                <label style="margin-left: -9px;">:الاسم الأول </label>
+                
+            </div>
+        </div>
+    
+    
+        <div class="row " style=" margin-top: 15px; margin-left: 5px; " >
+            <div    class="col-6   mx-1 " >
+                <input type="text"  formControlName="lname" id="lname" name="lName" class="form-control" style="  border-radius: 18px; border-collapse:collapse;  width: 170px;outline: rgba(217, 217, 217, 1);border-color: rgba(217, 217, 217, 1);background-color: rgba(217,217,217,1);box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset ">
+    
+                
+            </div>
+            <div class="col-3 mx-0  " >
+                
+                <input type="text" formControlName="fname" id="fname" name="fName" class="form-control" style=" border-radius: 18px; border-collapse:collapse;  width: 170px;outline: rgba(217, 217, 217, 1);border-color: rgba(217, 217, 217, 1);background-color: rgba(217,217,217,1);box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset " >
+    
+            </div>
+        </div>
+        
+        
+        <div class="row  justify-content-between   " style="   margin-top: 15px; margin-top: 15px; " >
+            <div  style="margin-left: 100px;"  class="col-5   " >
+              
+                
+            </div>
+            <div class="col-3   mx-1    ">
+                <label >:رقم الجوال </label>
+                
+            </div>
+        </div>
+    
+    
+    
+        <div class="row " style="margin-top: 15px; ">
+            <div class="   col-2  "style="margin-left: 25px;" >
+                <div class=" pt-1 rounded-5 "
+                    style=" background-color:rgba(217, 217, 217, 1); border-collapse: collapse; 
+                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;  height: 100%; width: 62px;">
+                    <h6 style="text-align: center;">+963</h6>
+                </div>
+            </div>
+            
+            <div class="  col-6  mx-2  " style=" margin-left: 40px;">
+                <input class="rounded-5 ,formControl"    formControlName="phone"  type="tel" 
+                    id="PhNum" name="phoUser"
+                    style="  width: 299px; text-align: left;border:rgba(217, 217, 217, 1);
+                      background-color:rgba(217, 217, 217, 1); border-collapse: collapse; box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;">
+            </div>
+        </div>
+    
+    
+    
+        <div class="row  justify-content-between  " style="   margin-top: 15px;  " >
+            <div  style="margin-left: 100px;"  class="col-6  " >
+              
+                
+            </div>
+            <div class="col-3        ">
+                <label style="margin-left: 20px;">المدينة </label>
+                
+            </div>
+        </div>
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="div row justify-content-center mx-1     " style="margin-top: 15px; ">
+        <select formControlName="city" class=" rounded-5 " name="country"
+        id="NameCountry"
+        style="width:381px; padding-top: 2px;appearance: none  ; 
+    background-color:rgba(217, 217, 217, 1); border-collapse: collapse; box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset; 
+    outline: rgba(217, 217, 217, 1);border-inline: rgba(217, 217, 217, 1);border-top: rgba(217, 217, 217, 1);  border-color: rgba(217, 217, 217, 1);"
+        >
+        <!-- drop down list- -->
+        <option style="text-align: right;    "
+            *ngFor="let city of CountryList" [value]="city.name">{{city.name}}
+        </option>
+    </select>
+    
+    
+    </div>
+    <div class="row  justify-content-between   " style="   margin-top: 15px; margin-left: -49.5px; " >
+        <div  style="margin-left: 100px;"  class="col-5  " >
+          
+            
+        </div>
+        <div class="col-3    mx-1    ">
+            <label >:تاريخ الميلاد </label>
+            
+        </div>
+    </div>
+    <div class="row mx-2 justify-content-end " style="margin-top: 15px;">
+    
+        <div class="form-input ">
+            
+            <input #celnder formControlName="birth_date" class="form-control rounded-5"  type="date" 
+         id="birth_date" name="date"    [value]="UserObj.birth_date" 
+                style="width: 381px; height: 30px; text-align: right;">
+          
+       
+    
+        </div>
+    </div>
+    
+    
+    <div class="row  justify-content-between   " style="   margin-top: 15px;  " >
+        <div  style="margin-left: 100px;"  class="col-6   " >
+          
+            
+        </div>
+        <div class="col-3        ">
+            <label style="margin-left: 20px;">الجنس </label>
+            
+        </div>
+    
+    </div>
+    <!-- <div class="row justify-content-center ">
+        <div class="form-check">
+            
+            <label  class="form-check-label" >أنثى</label>
+            <input class="form-check-input" type="radio" name="fmale" id="fmale"/>
+          </div>
+    </div> -->
+     <div class="row justify-content-end  mt-2 " > 
+        <div class="div col-1     "><p>أنثى</p></div>
+        <div class="div col-2   "> <input formControlName="gender" class="form-check-input"
+            type="radio" name="gender" id="inlineRadio1" value="أنثى"></div>
+     </div>
+    
+     <div class="row justify-content-end justify-content-sm-end " > 
+        <div class="div col-1   "><p>ذكر</p></div>
+        <div class="div col-2   "> <input formControlName="gender" class="form-check-input"
+            type="radio" name="gender" id="inlineRadio1" value="ذكر"></div>
+     </div>
+    
+     <div class="row  justify-content-end   " style="   margin-top: 5px; margin-left: -49.5px; " >
+        <div  style="margin-left: 100px;"  class="col-5  " >
+          
+            
+        </div>
+        <div class="col-2    mx-lg-4 ml-3   ">
+            <label style="margin-top: -8px;">مهاراتك  </label>
+            
+        </div>
+    </div>
+    
+    
+    
+    <div class="row mt-2" style="width: 900px;">
+        <div class="div col "></div>
+        <div class="col-9  mx-lg-0">
+            <!-- <ejs-dropdowntree  style="  margin-left: -200px; border-radius: 18px; border-collapse:collapse;" [fields]="datasourceFields" allowMultiSelection="true"
+                            showCheckBox="true" popupHeight="150px" popupWidth="300px">
+    
+                        </ejs-dropdowntree>  -->
+                        <p-treeSelect #myTree   
+                                                [options]="treeviewData" display="chip" formControlName="Skill"
+                                                [metaKeySelection]="false" selectionMode="checkbox" placeholder="Select Item"
+                                                >
+                                            </p-treeSelect>
+        </div>
+       
+    </div>
+    
+    
+    
+    
+    
+    <div class="row  justify-content-around  " style="   margin-top: 15px; " >
+        <div  style="margin-left: 100px;"  class="col-5  " >
+          
+            
+        </div>
+        <div class="col-4    ">
+            <label >روابط مشاريعك</label>
+            
+        </div>
+    </div> 
+    <!-- <div class="row" style="margin-top: 15px;"> -->
+        <!-- <div class="col-3  mx-4  " >
+            <input type="text"  style=" border-radius: 18px; border-collapse:collapse;  width: 381px;outline: rgba(217, 217, 217, 1);border-color: rgba(217, 217, 217, 1);background-color: rgba(217,217,217,1);box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset ">
+    
+        </div> -->
+        
+    
+        <!-- <div class="row justify-content-center">
+            <div *ngFor="let project of UserObj.ProjectLink let i = index">
+                <a style="margin-left: 280px; color: black;" class="row" >{{ UserObj.ProjectLink[i] }}</a>
+              </div>
+        </div> -->
+    
+    
+        <div>
+        <div class="form-row mt-1 " style="margin:0%;"  formArrayName="ProjectLink" >
+        <div class="form-input">
+            <span class="eyeicon"><button (click)="addProjectLinks()"
+                    style="  padding: 0;border: none;background: none;"> <i
+                        class="fa fa-plus-circle" aria-hidden="true"></i></button></span>
+            <input [formControl]="linkInputformcontrol" type="text"
+                class="rounded-5 form-control d-inline" style=" width:380px; height: 30px;" >
+                <div style="margin-left: 8%; display: flex; align-items: center;"
+                *ngFor="let ProLink of projectLink.controls; index as idx">
+                <button (click)="removeData(idx)"
+                    style="padding: 0;border: none;background: none;margin-left: 8; margin-top: -3px;"><i
+                        class="fa fa-times " aria-hidden="true"
+                        style="color: #ff0000; "></i></button>
+                <p style="margin-left: 6; margin-top: 5px;">{{ProLink.value}}</p>
+            </div>
+    
+        </div>
+    </div>
+    
+    </div>
+    
+    
+    <!-- <div class="row " style="margin-left: 20px;">
+        <p style="margin-top: -2px;">http://localhost:4200/edit-profile</p>
+        <p style="margin-top: -15px;">http://localhost:4200/edit-profile</p>
+        <p style="margin-top: -15px;">http://localhost:4200/edit-profile</p>
+    </div> -->
+    
+    <div class="row " style="margin-left: 240px; margin-top: 20px;">
+        <a style="color:rgba(255, 202, 0, 1);" href="http://localhost:4200/reset-password1">إعادة تعيين كلمة السر</a>
+    
+    </div>
+    
+    
+    <div class="row  mt-5" >
+        <div class="col-3  "><button type="reset" (click)="Delte_edit()" class="btn  rounded-4  " value="cancel"
+            style=" margin-left: 20px; background-color: rgba(255, 202, 0, 1);width: 80px;height: 40px;box-shadow:0 4px 4px 0 rgba(0,0,0,0.25);  ">مسح</button></div>
+        <div class="col-2  "><button type="submit" (click)="Submit_edit()" class="btn  rounded-4  " value="submit"
+            style=" background-color: rgba(255, 202, 0, 1);width: 80px ;height: 40px;box-shadow:0 4px 4px 0 rgba(0,0,0,0.25);  ">حفظ</button></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    </form>
+    
+    
+                </div>
+    
+    
+    
+            </div>
+    
+            <hr><div class="text-danger"><h3>to be removed[for test]:</h3>
+                {{editForm.value |json }}</div>
+            <!-- <h3>{{editForm.get('ProjectLink')?.value}}</h3> -->
+                <!-- <div>{{editForm.get('fname')?.errors|json}}</div>
+                <div>{{fname?.errors|json}}</div>
+                <div>{{editForm.get('lname')?.errors|json}}</div> -->
+                <div></div> 
+                
+                
+    
+                

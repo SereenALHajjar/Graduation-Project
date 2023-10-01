@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid  ">
+
+
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+      <ul class="navbar-nav fw-bold text-white">
+        <li class="nav-item ">
+          <a class="nav-link " routerLink="/createaccount" [hidden]="isUserLogged" routerLinkActive="active">إنشاء حساب
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-monospace" [hidden]="isUserLogged" routerLink="/login" routerLinkActive="active" >
+            | تسجيل الدخول </a><!--لو هوي مسجل دخول بخفي هاذ الزر-->
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " [hidden]="!isUserLogged" (click)="logout()" routerLinkActive="active">تسجيل الخروج
+          </a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link font-monospace" [hidden]="!isUserLogged" routerLink="/myprofile"  routerLinkActive="active" >| {{username}} </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto fw-bold">
+        <li class="nav-item">
+          <a class="nav-link" href="#">عنا</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">إحصائيات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contents" routerLinkActive="active"> اطلب مهمة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">ابحث عن مهمة  </a>
+        </li>
+       
+
+
+
+
+
+      </ul>
+
+
+      <a class="navbar-brand ms-5 " href="/home">
+        <img src="assets/Component 1.png" alt="logo" style="width:80px; height:40px">
+      </a>
+    </div>
+  </div>
+</nav>

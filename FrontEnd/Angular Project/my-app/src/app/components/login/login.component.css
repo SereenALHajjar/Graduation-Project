@@ -1,0 +1,113 @@
+*{
+   padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    }
+    
+    .row{
+        
+       border-radius: 30px;
+    }
+    
+    .btn1{
+    border:none;
+    outline:none;
+    height: 30px;
+    width: 65px;
+    background-color: rgba(255, 202, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    font-weight:490;
+    margin-left: 7%;
+    font-size: small;
+    
+    
+    }
+   
+    input {
+      text-align: right;
+      background-color: rgba(217, 217, 217, 1);
+      border-color: rgba(217, 217, 217, 1);
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+      border-collapse: collapse;
+  
+      padding: 2px;
+      margin: 0;
+  
+  }
+  .box-area{
+   width: 930px;
+  }
+  .left-box{
+   padding: 40px 30px 40px 40px;
+ }
+ section{
+   position: relative;
+   width: 100%;
+   height: 100%;
+   display: flex;
+ }
+ section .right-box{
+   position: relative;
+   
+ }
+ @media only screen and (max-width:768px){
+   .formBx{
+      margin-top: 15%;
+   }
+   .box-area{
+      margin:0 10px;
+     }
+     .right-box{
+      height: 100px;
+      overflow: hidden;
+      
+     }
+     .left-box{
+      padding: 20px;
+    }
+ }
+
+  .form-input input {
+   outline: rgba(217, 217, 217, 1);
+   border-inline: rgba(217, 217, 217, 1);
+   border-top: rgba(217, 217, 217, 1);
+   padding-left: 33px;
+   background-color: rgba(217, 217, 217, 1);
+   border-color: rgba(217, 217, 217, 1);
+   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+   border-collapse: collapse;
+   margin: 0;
+
+}
+/* section .contentBx{
+   display: flex;
+} */
+/* section .contentBx .formBx h5{
+   
+} */
+/* .form-input1 input {
+   outline: rgba(217, 217, 217, 1);   
+   border-inline: rgba(217, 217, 217, 1);
+   border-top: rgba(217, 217, 217, 1);
+   padding-left: 10px;
+   background-color: rgba(217, 217, 217, 1);
+   border-color: rgba(217, 217, 217, 1);
+   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+   border-collapse: collapse;
+   margin: 0;
+
+} */
+    /*.btn1:hover{
+     box-shadow: 0px 4px 4px 0px  rgba(255, 202, 0, 1) inset;
+    background: white;
+    border: 1px solid;
+    color:rgb(229, 255, 0);
+    }*/
+      
+    
+    /* .form{
+        
+        padding-left: 9%;
+    
+    } */
+    

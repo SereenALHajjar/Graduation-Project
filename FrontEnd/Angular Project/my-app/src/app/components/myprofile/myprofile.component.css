@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+input{ text-align: right;
+background-color: rgba(217, 217, 217, 1);
+border-color: rgba(217, 217, 217 ,1);
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)inset;
+border-collapse: collapse;
+}
+
+
+.wrapper{ 
+
+position: relative;
+height: 110px;  
+width:110px;
+border:5px solid;
+border-radius: 50%;
+background: url('../../../assets/profile_photo2.jpg');
+background-size: 100% 100%;
+margin: auto;
+overflow: hidden;
+}
+.my_file{
+   position: absolute;
+   bottom: 0;
+   outline: none;
+   color: transparent;
+   width:100%;
+   box-sizing: border-box;
+   padding: 15px 120px;
+   cursor: pointer;
+   transition: 0.5s;
+   background: rgba(0,0,0,0.5);
+   opacity: 0;
+
+}
+/* .my_file::-webkit-file-upload-button{
+   visibility: hidden;
+} */
+/* .my_file::before{
+   content: 'f030';
+   font-family: fontAwesome;
+   font-size: 50px;
+   color:#fff;
+   display: inline-block;
+   -webkit-user-select: none;
+} */
+.my_file::after{
+   content: 'Update';
+   
+   font-weight: bold;
+   color: #fff;
+   display: block;
+
+top: 70px;
+font-size: 14px;
+position: absolute;}
+
+/* .my_file:hover{
+   opacity: 1;
+} */
+
+.width20{
+   width:20% !important;
+}
+.width80{
+   width:79% !important;
+ margin-left:1% !important;
+}
+.btn {
+   background-color: FFCA00;
+   border-color: FFCA00;
+   
+} 
+.btn:hover {
+   background-color: EFBE04;
+   border-color: EFBE04;
+   
+} 
+.saveorder {
+   background-color: D9D9D9;
+   border-color: D9D9D9;
+   color:black;
+}
+.saveorder:hover {
+   background-color: D0CECE;
+   border-color: D0CECE;
+}
+.line {
+   border-right: 2px solid #333;
+}
+.text-custom-color {
+   color:9C9C9C;
+}
+.icon {
+   color:9C9C9C;
+}
+.tag {
+   color:black;
+   background-color: D9D9D9;
+   border-radius: 25%;
+   border-collapse: collapse;
+   padding-left: 15%;
+   padding-right: 15%;
+
+}

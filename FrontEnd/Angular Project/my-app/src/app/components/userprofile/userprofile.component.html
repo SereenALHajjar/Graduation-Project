@@ -1,0 +1,402 @@
+<div class="container">
+    <form>
+        <div class="div row">
+
+            <div class="div col-lg-6 order-lg-1">
+                <div class="container " style=" margin-top: 20px;  overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 600px;
+    height: 800px;margin-left: 100px; margin-top: 20px;">
+
+                    <div class="row ">
+                        <div class="col"></div>
+                        <div class="col-4">
+                            <h4 style=" margin-top: 20px;">ملفك الشخصي </h4>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col" style="margin-top: -40px;">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="   bi bi-pencil-fill" routerLink="/edit-profile"
+                                viewBox="0 0 16 16 ">
+                                <path
+                                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                            </svg> -->
+                        </div>
+
+
+
+                        <div class="row">
+                            <section class="col col-md-12">
+                                <div class="wrapper rounded-circle">
+                                    <img height="100" src="../../../assets/download (1).jpg" class="profilePic" />
+                                </div>
+
+
+                            </section>
+                        </div>
+                        <div class="row justify-content-lg-center justify-content-sm-center  "
+                            style="margin-top: 10px;">
+                            <div class="col " style="margin-left: -100px;"></div>
+                            <div class="col"><label>{{UserObj.fname }} {{ UserObj.lname}}</label></div>
+                        </div>
+
+                    </div>
+                    <div class="div row justify-content-lg-center justify-content-center mt-2 mt-lg-2">
+
+                       
+                    </div>
+
+                    <div class="row justify-content-lg-center justify-content-sm-center me-lg-5  me-5 "
+                        style="margin-top: 10px;">
+                        <div class="col "></div>
+                        <div class="col me-lg-3 me-4"><label>{{UserObj.city}}</label></div>
+                    </div>
+
+
+                    <div class="row justify-content-lg-center justify-content-sm-center me-lg-5 me-5 "
+                        style="margin-top: 10px;">
+                        <div class="col "></div>
+                        <div class="col"><label>{{UserObj.gender}}</label></div>
+                    </div>
+
+
+                    <div class="row justify-content-lg-center justify-content-sm-center me-lg-5 me-5 "
+                        style="margin-top: 10px;">
+                        <div class="col "></div>
+                        <div class="col"><label> {{rate.rate}} </label></div>
+                    </div>
+                    <div class="div row justify-content-lg-end justify-content-end mt-5 mt-lg-5 me-lg-4">
+                        <div class="col-lg-1 col-1"></div>
+                        <div class="col-lg-2 col-3">
+                            <h4>المهارات</h4>
+                        </div>
+                    </div>
+
+
+                    <div *ngFor="let skil of UserObj.Skill; let i = index">
+                        <div *ngIf="i % 3 === 0" class="row justify-content-end me-5 ms-0 me-lg-4 ms-lg-0 me-0 ms -5">
+                            <div class="col-3">{{UserObj.Skill[i]}}</div>
+                            <div class="col-3" *ngIf="UserObj.Skill[i+1]">{{UserObj.Skill[i+1]}}</div>
+                            <div class="col-3" *ngIf="UserObj.Skill[i+2]">{{UserObj.Skill[i+2]}}</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="div row justify-content-lg-end justify-content-end mt-5 me-2  mt-lg-5 me-lg-0">
+                        <div class="col-lg-2 col-1"></div>
+                        <div class="col-lg-4 col-4">
+                            <h4>روابط المشاريع</h4>
+                        </div>
+                    </div>
+
+
+                    <div class="row justify-content-center">
+                        <div *ngFor="let project of UserObj.ProjectLink let i = index">
+                            <a style="margin-left: 280px; color: black;" class="row">{{ UserObj.ProjectLink[i] }}</a>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="div col-lg-6 ">
+                <div class="container " style="margin-left: -150px; margin-top: 20px;  overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 800px;
+    height: 800px; margin-top: 20px;">
+
+
+<ng-container *ngFor ="let post of mypostresult ">
+  
+    
+    <!-- order -->
+            <div   class="card pt-3 mt-3 pe-2 shadow " style="background-color: F8F8F8;unicode-bidi: embed;">
+              <!-- <div class="card-header">
+                Featured
+              </div> -->
+              <div class="card-body  text-end " >
+                <h5 class="card-title " [routerLink]="['/myPost',post.post_id]" style='direction:rtl;unicode-bidi: embed;'>{{post.title}} </h5>
+                <p class="card-text " [routerLink]="['/myPost',post.post_id]" style='direction:rtl;unicode-bidi: embed;'> {{post.description}} </p>
+              
+                  
+                  <div class="row justify-content-end">
+                    <div class="col-lg-4 col-md-4 col-sm-3  order-sm-4 order-xs-2 order-2" style="max-width:50%">
+                      <span class="pe-2 text-custom-color" [routerLink]="['/userprofile']"  > {{ post.userName }}</span>
+                      <span class="pe-2 text-custom-color"> </span>
+                      <i class="fa fa-user-o icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-lg-4 col-md-3 col-sm-3 col-3 order-sm-3 order-xs-1 order-1"style="max-width:50%">
+                      <span class="pe-2 text-custom-color"> {{getDurationDate(post.pub_date)}} منذ </span>
+                      <i class="fa fa-clock-o icon" aria-hidden="true"></i>           
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-3 pl-1   order-sm-2 order-xs-4  order-4"style="max-width:50%"> 
+                      <!-- <span class="pe-2 text-custom-color"> {{post.numberOfViews}} </span>
+                      <i class="fa fa-eye icon" aria-hidden="true"></i> -->
+                      <span class="pe-2 text-custom-color"> {{post.numberOfOrders}} </span>
+                      <i class="fa fa-comment-o icon" aria-hidden="true"></i>
+                      
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-3   order-sm-1 order-xs-3 order-3"style="max-width:50%">
+                      <!-- <span class="pe-2 text-custom-color"> {{post.numberOfOrders}} </span>
+                      <i class="fa fa-comment-o icon" aria-hidden="true"></i> -->
+                    </div>
+                  </div>
+               
+                
+                <div class="row justify-content-end pt-4 ">
+                  <ng-container *ngFor="let tag of post.type" >
+                  <div class=" col-lg-4 col-6 col-md-6  mt-3">
+                    <span class="tag rounded">{{tag}} </span>
+                  </div>
+                </ng-container>
+
+                  <!-- <div class="col-lg-2 col-6 col-md-6 mt-3">
+                    <span class="tag rounded">{{tag}} </span>
+                  </div>
+                  <div class="col-lg-3 col-6 col-md-6 mt-3">
+                    <span class="tag rounded"> {{tag}} </span>
+                </div> -->
+                </div>
+    
+              
+                
+         
+              <div class="row justify-content-end pt-1 mt-2">
+                <div class="col-lg-12  row justify-content-end pb-1">
+                  <div *ngIf="post.avgOfOreders>0" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-2 order-md-2 order-1 order-lg-2" style="color:DB3332;max-width: fit-content; ">متوسط العروض المقدمة </div>
+                  <div *ngIf="post.avgOfOreders>0" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-1 order-md-1 order-2 order-lg-1" style="color:DB3332;">{{post.avgOfOreders | number:'1.0-2'}} SYR</div>
+                  <div *ngIf="!post.avgOfOreders" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-2 order-md-2 order-1 order-lg-2" style="color:DB3332;max-width: fit-content; ">لا يوجد عروض مقدمة </div>
+                  <div *ngIf="!post.avgOfOreders" class="col-lg-6 col-md-3 col-xs-6 col-sm-6 order-sm-1 order-md-1 order-2 order-lg-1" style="color:DB3332;"></div>
+                </div>
+              </div>              
+              <div class=" row justify-content-end pt-3 pb-3">
+                <div class="col-auto md-auto sm-auto me-auto  order-1">
+                  <!-- <span mat-button  class="px-2 btn btn-primary  shadow-sm  rounded-3">قدم عرضك  </span> -->
+                  <!-- <span class="px-2"><a href="#" class="btn btn-primary text-left shadow-sm saveorder rounded-3 ">احفظ الخدمة </a></span>  -->
+                
+                </div>  
+              </div>
+                                              <!-- Button trigger modal -->
+                <!-- <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">
+                  Launch demo modal
+                </button>
+              
+                <app-submit-offer ></app-submit-offer> -->
+          
+          
+          </div>
+          </div>
+        </ng-container>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form>
+
+    <div class="row " style="padding-right: 100px;">
+        <div class="div col-lg-7 mx-sm-5 mx-lg-0 order-sm-2 order-lg-0 order-md-0">
+            <div class="div row">
+                <div class="container " style=" margin-top: 20px;  overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 600px;
+    height: 800px; margin-right: 130px; margin-top: 20px;">3</div>
+            </div>
+            <div class="div row">
+                <div class="container " style="   overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+            border-radius: 20px;
+            width: 600px;
+            height: 800px; margin-top: 20px;margin-right: 130px;">4</div>
+            </div>
+        </div>
+        <div class="div col-lg-5   mx-sm-5 mx-lg-0  ">
+            <div class="div">
+                <div class="container " style="  margin-top: 20px; overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 600px;
+    height: 800px; margin-right: 120px;">
+                    <div class="row ">
+                        <div class="col"></div>
+                        <div class="col-4">
+                            <h4 style=" margin-top: 20px;">ملفك الشخصي </h4>
+                        </div>
+                    </div>
+                    <div class="div row">
+                        <div class="row">
+                            <section class="col col-md-12">
+                                <div class="wrapper rounded-circle">
+                                    <img height="100" src="../../../assets/profile_photo2.jpg" class="profilePic" />
+                                </div>
+                        
+                        
+                            </section>
+                        </div>
+
+
+
+                        <div class="row justify-content-lg-center justify-content-sm-center  "
+                        style="margin-top: 10px;">
+                        <div class="col " style="margin-left: -100px;"></div>
+                        <div class="col"><label>محمد المحمد</label></div>
+                    </div>
+
+
+
+
+
+
+
+<div class="div row justify-content-lg-center mt-lg-2">
+   
+<div class="col-lg-1 mx-lg-4">محادثاتك</div>
+<div class="col-lg-1 mt-lg-1"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+    height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16 "routerLink="/chat">
+    <path
+        d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
+</svg></div>
+</div>
+
+ -->
+
+
+<!-- <div class="div row justify-content-lg-center justify-content-sm-center "
+                            style="margin-left: 12px; margin-top: 10px;">
+                            <div class="col-lg-1 col-sm-1 ml-sm-2"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                                </svg></div>
+                            <div class="col-lg-1 col-sm-1"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
+                                </svg></div>
+                            
+                        </div> -->
+<!--                        
+                        <div class="row justify-content-lg-center justify-content-sm-center  "
+                            style="margin-top: 10px;">
+                            <div class="col " style="margin-left: -10px;"></div>
+                            <div class="col"><label>5.5</label></div>
+                        </div>
+
+                        <div class="row justify-content-lg-center justify-content-sm-center  "
+                            style="margin-top: 10px;">
+                            <div class="col " style="margin-left: -20px;"></div>
+                            <div class="col"><label>حمص</label></div>
+                        </div>
+                        <div class="row justify-content-lg-center justify-content-sm-center  "
+                            style="margin-top: 10px;">
+                            <div class="col " style="margin-left: -20px;"></div>
+                            <div class="col"><label>ذكر</label></div>
+                        </div>
+
+                        <div class="row justify-content-lg-start justify-content-sm-center" style="margin-top: -12px; margin-left: 230px;">
+
+                            <p class="col-1" >23</p>
+                            <p class="col-1" >/</p>
+                            <p class="col-1" >10</p>
+                            <p class="col-1" >/</p>
+                            <p class="col-1" >2022</p>
+    
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="div row justify-content-lg-center"></div>
+        </div>
+    </div>
+</form>
+
+
+ -->

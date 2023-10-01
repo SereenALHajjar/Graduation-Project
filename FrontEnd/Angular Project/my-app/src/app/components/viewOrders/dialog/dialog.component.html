@@ -1,0 +1,60 @@
+<!-- <div class="modal-dialog">
+    <h2 mat-dialog-title> قدم عرضك </h2>
+    <mat-dialog-content>اطلعت على طلبك بناء قاعدة بيانات لمشفى ويسرني العمل معكم حسب متطلباتكم و يبقى التواصل مستمر  </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="dialog-footer">
+        <button type="button" mat-button data-bs-dismiss="modal" (click)="close()">Close</button>
+    </div>
+    </mat-dialog-actions>
+</div> -->
+<!-- <div class="modal fade" style="direction:rtl">
+<h2 mat-dialog-title> قدم عرضك </h2>
+<mat-dialog-content><p>
+    اطلعت على طلبك بناء قاعدة بيانات لمشفى ويسرني العمل معكم حسب متطلباتكم و يبقى التواصل مستمر  
+</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button ngbButton mat-button (click)="close()">Close</button>
+</mat-dialog-actions>
+</div> -->
+<body>
+    <form [formGroup]="offerForm" (ngSubmit)="submit()">
+    <div  class="" style="direction:rtl; background-color: F8F8F8;unicode-bidi: embed;width:fit-content;">
+    <div class="modal-header p-3">
+        <h2 class="modal-title">قدم حلك</h2>
+      </div>
+      <div class="modal-body p-3 px-4 " style="font-size:large;font-weight: 500;">
+        <p>اطلعت على مشكلتك {{getPostTitle()}}  
+            ويسرني العمل معكم حسب متطلباتكم و يبقى التواصل مستمر </p>
+        <div class="row p-3">
+            <div class="col-3">
+                <span>خلال زمن أقصاه </span>
+            </div>
+            <div class="col-6">
+                <!-- <input type="text" formControlName="max_date" class="rounded-5 form-control search shadow-sm  input-box" > -->
+                <input #celnder formControlName="max_date" class="form-control rounded-5 date search shadow-sm input-box"
+                    type="date" value="3/1/2020" style="text-align: right; " name="date" id="sdate">
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col-3">
+                <span>و مبلغ قدره </span>
+            </div>
+            <div class="col-6">
+                <input type="number" formControlName="money" class="rounded-5 form-control search shadow-sm  input-box" >
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer p-3">
+        <button type="button" class="btn btn-secondary px-2 mx-3 shadow-sm saveorder rounded-3" (click)="close()">الرجوع</button>
+        <button type="button" class="btn btn-secondary px-2   shadow-sm  rounded-3" (click)="submit()">قدم حلك </button>
+      </div>
+    
+    </div>
+</form>
+      
+    
+    
+      </body>
+      <!-- Modal -->
+     

@@ -1,0 +1,265 @@
+<div class="container-fluid text-center ">
+  <br><br>
+  <div class="row">
+    <!-- order -->
+    <div class="col-lg-9 line">
+      <!-- <app-ViewOrders></app-ViewOrders> -->
+      <app-view-orders  *ngIf="searchresult" [postsList]="searchresult" (pressTag)="onTagPressed($event)"></app-view-orders>
+    </div>
+    <!--search-->
+
+    <div class="col-3 d-none  d-lg-block line" style="background-color: rgb(255, 255, 255);">
+      <form [formGroup]="searchForm" (ngSubmit)="startSearch()">
+        <!-- <div formArrayName="subgroup"> -->
+
+        <div class="row pt-2">
+          <div class="col-lg-12">
+            <p class="text-end fs-4" for="stitle">بحث</p>
+          </div>
+          <!-- title -->
+          <div class="col-lg-12">
+            <input type="text" formControlName="title" name="title" id="title"
+              class="rounded-3 form-control search shadow-sm  input-box">
+          </div>
+        </div>
+        <!-- fast search -->
+        <div class="row pt-2">
+          <div class="col-lg-12">
+            <p class="text-end fs-4">نوع المهمة</p>
+          </div>
+          <div class="col-lg-12">
+            <!-- first checkbox -->
+            <div class=" form-check">
+              <input formControlName="web" class="form-check-input float-right " type="checkbox" id="Web" name="Web" />
+              <label class="form-check-label float-right" style="padding-right: 40px;" for="Web">Web</label>
+            </div>
+
+            <!-- second checkbox -->
+            <div class="form-check">
+              <input formControlName="mobile" class="form-check-input" type="checkbox" id="Mobile" name="Mobile" />
+              <label class="form-check-label" style="padding-right: 40px;" for="Mobile">Mobile</label>
+            </div>
+            <!-- third checkbox -->
+            <div class="form-check">
+              <input formControlName="desktop" class="form-check-input" type="checkbox" value="" id="Desktop"
+                name="Desktop" />
+              <label class="form-check-label" style="padding-right: 50px;" for="Desktop">Desktop</label>
+            </div>
+            <!-- forth checkbox -->
+            <div class="form-check">
+              <input formControlName="learning" class="form-check-input" type="checkbox" value="" id="Learning"
+                name="Learning" />
+              <label class="form-check-label" style="padding-right: 50px;" for="Learning">Learning</label>
+            </div>
+            <!-- fifth checkbox -->
+            <div class="form-check">
+              <input formControlName="uiux" class="form-check-input" type="checkbox" value="" id="UI&UX" name="UI&UX" />
+              <label class="form-check-label" style="padding-right: 40px;" for="UI&UX">UI&UX</label>
+            </div>
+
+            <!-- seventh checkbox -->
+            <div class="form-check">
+              <input formControlName="ai" class="form-check-input" type="checkbox" value="" id="AI" name="AI" />
+              <label class="form-check-label" style="padding-right: 40px;" for="AI">AI</label>
+            </div>
+
+          </div>
+        </div>
+        <!-- skills -->
+        <div class="row pt-2">
+          <div class="col-lg-12">
+            <p class="text-end fs-4" style="display: block;">المهارات المطلوبة</p>
+          </div>
+          <div class="col-lg-12 rounded-3" style="margin-left: 9%;">
+            <!-- <select class=" form-select-sm search shadow-sm rounded-5 border-top: rgba(217, 217, 217, 1);  input-box " 
+                            style="appearance: none; border-bottom: 0px ;"
+                            id="sskills" [(ngModel)]="searchObj.skills" name="skills"
+                            aria-label=".form-select-sm example multiple select ">
+                    <option selected>+</option>
+                    <option value="1">back-end</option>
+                    <option value="2">front-end</option>
+                    <option value="3">ai</option>
+                    <option value="3">design</option>
+                    <option value="3">learn</option>
+                  </select> -->
+
+            <!-- <ejs-dropdowntree   style="  margin-left: -70px;  border-radius: 18px; border-collapse:collapse;"
+                    [fields]="datasourceFields"  allowMultiSelection="true" showCheckBox="true" popupHeight="200px"
+                    popupWidth="326px">
+
+                  </ejs-dropdowntree> -->
+            <p-treeSelect #myTree [value]="selectedIds" [(ngModel)]="selectedIds" [(selection)]="selectedNodeArray"
+              [options]="treeviewData" display="chip" formControlName="skills" [metaKeySelection]="false"
+              selectionMode="checkbox">
+            </p-treeSelect>
+          </div>
+
+
+
+          <!-- <div class="form-row ">
+                  <div class="row">
+                      <div class="container" style="margin-top: 0;margin-left: 22%;">
+                          <ejs-dropdowntree formControlName="skills" [fields]="datasourceFields"
+                              allowMultiSelection="true" showCheckBox="true" popupHeight="200px"
+                              popupWidth="326px">
+                          </ejs-dropdowntree>
+                      </div>
+                  </div>
+              </div> -->
+
+
+
+
+
+
+        </div>
+        <!-- date -->
+        <div class=" row form-input pt-2">
+          <div class="col-lg-12">
+            <p class="text-end fs-4">تاريخ التسليم</p>
+          </div>
+          <div class="col-lg-12">
+            <p class="text-end fs-4">تاريخ البداية </p>
+          </div>
+          <div class="col-lg-12">
+            <input #celnder formControlName="start" class="form-control rounded-3 date shadow-sm input-box"
+              type="date" value="3/1/2020" style="text-align: right; " name="date" id="sdate">
+          </div>
+          <div class="col-lg-12">
+            <p class="text-end fs-4">تاريخ النهاية </p>
+          </div>
+          <div class="col-lg-12">
+            <input #celnder formControlName="end" class="form-control rounded-3 date shadow-sm input-box"
+              type="date" value="3/1/2020" style="text-align: right; " name="date" id="sdate">
+          </div>
+        </div>
+        <!-- city -->
+        <!-- <div class="row pt-2">
+                <label class="col-lg-12" for="city">
+                  <p class="text-end fs-4" style="display: block;">المدينة</p>
+                </label>
+                <div class="col-lg-12">
+                  <select class=" form-select-sm search shadow-sm rounded-5 input-box " id="city"
+                    style="appearance: none; border-bottom: 0px ;" name="city" formControlName="city"
+                    aria-label=".form-select-sm example multiple select ">
+                    <option selected>+</option>
+                    <option value="حمص">حمص</option>
+                    <option value="دمشق">دمشق</option>
+                    <option value="حماه">حماه</option>
+                    <option value="طرطوس">طرطوس</option>
+                    <option value="اللاذقية">اللاذقية</option>
+                  </select>
+                </div>
+
+                <!-- <p class="text-end fs-4" style="display: block;" >المدينة</p> -->
+        <!-- <select class="form-select form-select-sm search shadow-sm " aria-label=".form-select-sm example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select> -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+        <br>
+
+
+        <!-- <div *ngFor="let item of subgroup.controls;let i = index" [formGroupName]="i">
+                <div class="row justify-content-end p-3">
+                  <div class="col-lg-4 col-sm-3 col-md-2">
+                    <span class="tag rounded padding-right"> {{item.value}} </span><button (click)="deleteItem(i)"><i class="fa fa-times "  aria-hidden="true"></i></button> 
+                  </div>
+                  </div>
+                  {{item | json}}
+                </div> -->
+
+
+
+
+
+
+
+
+        <!-- 
+        <div class="row justify-content-end p-3">
+          <div class="col-lg-4 col-sm-3 col-md-2">
+            <span class="tag rounded padding-right">web</span> <i class="fa fa-times " aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-4 col-sm-3 col-md-2 ">
+            <span class="tag rounded padding-right">figma</span><i class="fa fa-times " aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-md-3">
+            <span class="tag rounded padding-right">12/1/2020</span><i class="fa fa-times " aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row justify-content-end p-3">
+          <div class="col-lg-4 col-sm-3 col-md-3">
+            <span class="tag rounded padding-right">حمص</span> <i class="fa fa-times " aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-4 col-sm-3 col-md-3 ">
+            <span class="tag rounded padding-right">java</span><i class="fa fa-times " aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-4 col-sm-3 col-md-3">
+            <span class="tag rounded padding-right">backend</span><i class="fa fa-times " aria-hidden="true"></i>
+          </div>
+        </div> -->
+        <br><br><br>
+        <!-- <div class="row">
+          <div class="col-lg-2 col-md-4">
+            <button type="submit" class="px-4 mr-4" style="border-width:0; background-color: aliceblue;"><a  class="btn btn-primary text-left searchbtn rounded-5 px-4 shadow-sm">بحث
+              </a></button>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <span class="px-2"><a (click)="DelteINF()" class="btn btn-primary clearsearch rounded-5 ml-5 px-4 shadow-sm">مسح </a></span>
+
+          </div>
+
+
+        </div> -->
+        <div class="row">
+          <div class="col-4 " style="padding-left: 6%;">
+            <button type="submit" class="btn1 rounded-4 pb-1  " value="Submit"
+              style="box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.25) ; width: 90%; background-color: rgba(255, 202, 0, 1);  color: rgba(0, 0, 0, 1);">
+              بحث</button>
+
+          </div>
+          <div class="col-4 ">
+            <button type="reset" class="btn1 rounded-4 pb-1 " value="cancel" style="box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.25) ;width: 90%;
+    background-color:rgba(217, 217, 217, 1); 
+       border-collapse: collapse;
+        color: rgba(0, 0, 0, 1);">
+
+              مسح</button>
+
+          </div>
+
+        </div>
+
+        <br><br><br>
+
+      </form>
+    </div>
+    <div>
+
+      <div>
+        <!-- {{searchForm.value | json}}
+        {{selectedNodeArray | json}}
+        {{selectedIds | json}} -->
+
+      </div>
+    </div>
+
+  </div>
+  <br>
+
+
+</div>

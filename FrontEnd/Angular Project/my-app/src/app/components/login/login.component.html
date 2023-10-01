@@ -1,0 +1,144 @@
+<section class="d-flex flex-column min-vh-100 justify-center-center align-items-center ">
+    <!-- ngsubmit stop default submit form(refrech)  -->
+    <div class="container d-flex justify-content-center align-items-center ">
+        <div class="row pt-3">
+            <div class="col-md-6 px-5 left-box">
+                <div class="contentBx justify-content-center align-items-center flex-column">
+                    <div class="formBx">
+                        <!-- (ngsubmit)="checkUser()" -->
+                        <form #userForm="ngForm" style=" background-color:rgba(248, 248, 248, 0.8);
+                            border-radius: 20px;width: 98%; height:100%" id="mm">
+                            <div class="form-row text-center">
+                                <h5 class="text-center pt-4">تسجيل الدخول</h5>
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <p class="pt-5 pb-1 text-end mx-5">رقم الجوال</p>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="row mx-5">
+                                    <div class="col-lg-2 col-3 col-md-3">
+                                        <div class="rounded-5 pt-1"
+                                            style="background-color:rgba(217, 217, 217, 1); border-collapse: collapse; 
+                                        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;  height: 100%; width: 100%;">
+                                            <h6 class="text-center">+963</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-10 col-9 col-md-9">
+                                        <input #userPhoInp="ngModel" type="tel" class="form-control rounded-5"
+                                            id="PhNum" name="phoUser"
+                                            style="   text-align: right;border:rgba(217, 217, 217, 1);
+                                              background-color:rgba(217, 217, 217, 1); border-collapse: collapse; box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;"
+                                            [(ngModel)]="phone" [ngModelOptions]="{standalone:true}"
+                                            [class.is-invalid]="userPhoInp?.invalid&&userPhoInp?.touched" required>
+                                        <!-- pattern="[0-9]{9,9}" -->
+                                    </div>
+                                </div>
+                                <div class="form-row" [hidden]="userPhoInp?.valid||userPhoInp?.untouched">
+
+                                    <p style="margin-right: 15.3%;font-size:70%;" class="text-danger text-end"
+                                        [hidden]="!userPhoInp.errors?.['required']">الرقم
+                                        مطلوب</p>
+                                    <!-- <small style="margin-left: 41%;" [hidden]="!userPhoInp.errors?.['pattern']">يجب أن يكون الرقم مكون من 9 أرقام </small> -->
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="form-row">
+
+                                <p class="pt-4 pb-1 text-end mx-5">كلمة السر</p>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="row mx-5">
+
+
+                                    <input #pass="ngModel" type="password" class="form-control rounded-5" id="Password"
+                                        min="9" max="9" name="passUser"
+                                        style="text-align: right;border:rgba(217, 217, 217, 1);
+                                    background-color:rgba(217, 217, 217, 1); border-collapse: collapse; box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.25) inset"
+                                        required [(ngModel)]="password" [ngModelOptions]="{standalone:true}"
+                                        [class.is-invalid]="pass?.invalid&&pass?.touched"><!--pattern="'^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'" -->
+
+                                    <div class="form-row"[hidden]="pass?.valid||pass?.untouched">
+                                      
+                                        <p style="margin-right: 3%;font-size:70%;" class="text-danger text-end"
+                                        [hidden]="!pass.errors?.['required']">كلمة السر
+                                            مطلوبة</p>
+                                        <!-- <small style="margin-left: 11%;" [hidden]="!pass.errors?.['pattern']"> يجب أن تكون كلمة المرور مزيجًا من الأحرف الصغيرة والكبيرة والأرقام وطولها 9
+                                        أحرف
+                                        على
+                                        الأقل</small> -->
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                            </div>
+                            <!-- <div class="row" *ngIf="pass?.invalid" style="margin-left: 46.4%; font-size:70%;"
+                            class="text-danger">
+
+                            كلمة السر غير صحيحة
+
+                        </div> -->
+
+                            <div class="form-row">
+                                <div class="row m-3 mx-5 mb-4">
+
+                                    <a class="text-dark text-end" [routerLink]="['/password-reset']"
+                                        routerLinkActive="router-link-active" style="  font-size: small;">لقد
+                                        نسيت كلمة السر</a>
+
+                                </div>
+                            </div>
+                            <div class="form-row ">
+                                <div class="row mb-4">
+                                    <!-- disabled="ngForm.invalid"  -->
+                                    <button type="submit" class="btn1 rounded-4" form="mm"
+                                        value="Submit" (click)="login()" style="box-shadow:  0 4px 4px 0 rgba(0, 0, 0, 0.25) ;"
+                                        >
+                                        تحقق
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="col d-none d-md-block px-5 pt-5 rounded-4 d-flex justify-content-center align-items-center flex-column right-box">
+                <div>
+                    <img src="assets/im1.png" class="img-fluid" alt="login" style="width: 400px;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   
+<!-- </section> -->
+<!-- <div class="text-warning">
+    <h3>To Be Removed [for test]:</h3>
+    <div> -->
+        <!-- {{ScanUser|json}} -->
+    <!-- </div>
+    <div> -->
+        <!-- {{ userPhoInp.className|json}}  -->
+        <!-- {{userPhoInp?.errors|json}}
+    </div>
+</div></section> -->

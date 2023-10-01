@@ -1,0 +1,188 @@
+<div class="container  mt-5">
+    <div class="row">
+        <div class="col-lg-6 d-none d-md-block ">
+
+            <img src="\assets\order.png" class="img-fluid col=1 hidden-md" alt="" style="width: 1500px; height:500px ">
+        </div>
+
+        <div class="col-lg-6 col-sm-11 ">
+
+            <div class=" container  " style="   overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 400px;
+    height: 700px;">
+                <form [formGroup]="orderForm">
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-5  ">
+                            <h4 style="margin-top: 20px;">طلب مهمة </h4>
+                        </div>
+
+                    </div>
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-4  " style="margin-left: 20px;">
+                            <label style="margin-top: 20px; margin-left: 15px;">: نوع المهمة </label>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row mt-2">
+                        <div class="div col "></div>
+                        <div class="col-9">
+                            <!-- <ejs-dropdowntree
+                                style="  margin-left: -70px;  border-radius: 18px; border-collapse:collapse;"
+                                [fields]="datasourceFields" allowMultiSelection="true" showCheckBox="true"
+                                popupHeight="200px" popupWidth="326px">
+
+                            </ejs-dropdowntree> -->
+                            <p-treeSelect #myTree [value]="selectedIds" [(ngModel)]="selectedIds"
+                                [(selection)]="selectedNodeArray" [options]="treeviewData" display="chip"
+                                formControlName="type" [metaKeySelection]="false" selectionMode="checkbox">
+                            </p-treeSelect>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-5 mt-4">
+                            <label for="max-date" class="form-label">:أقصى تاريخ للتسليم
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-5 mt-2">
+                            <input type="date" formControlName="max_date" id="max-date" name="max-Date"
+                                class="form-control rounded-3"
+                                style="margin-left: -140px;  border-collapse:collapse; 
+                                 width: 250px;outline: rgba(217, 217, 217, 1);border-color: rgba(217, 217, 217, 1);
+                                 background-color: rgba(217,217,217,1);height:30px;">
+                                 
+                        </div>
+
+
+                        <!-- box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset  -->
+
+                    </div>
+                    <div class="form-row">
+                        <p *ngIf="max_date?.errors?.['required']&&max_date?.touched"
+                            style=" font-size:70%;margin-right:13%" class="text-danger text-end">
+                            أقصى تاريخ للتسليم مطلوب
+                        </p>
+                    </div>
+
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-4 mt-4 ">
+                            <label for="title" class="form-label"> :عنوان المهمة</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-9 mt-2 ">
+                            <input type="text" class="rounded-3 textareatitle form-inline,form-control" formControlName="title"
+                                id="title" name="title" />
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div [hidden]="title?.valid||title?.untouched">
+                        <p *ngIf="title?.errors?.['required']&&title?.touched" style=" font-size:70%;margin-right:12%"
+                            class="text-danger text-end">
+                            عنوان المهمة مطلوب
+                        </p>
+                        <!-- ما عم تزبط معي اني حط شرط عليها  -->
+                        <!-- <p *ngIf="title?.errors?.'maxLength'">maxlength</p> -->
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-3 mt-4 ">
+                            <label for="description" class="form-label"> :اشرح أكثر</label>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row ">
+                        <div class="div col "></div>
+                        <div class="col-9 mt-2 ">
+                            <textarea class="rounded-3 textareadescription form-inline ,form-control"
+                                formControlName="description" id="description" name="Description">
+                                <div class="form-row">
+                                    <p *ngIf="title?.errors?.['required']&&title?.touched"
+                                        style=" font-size:70%;margin-right:13%" class="text-danger text-end">
+                                    :      عنوان المهمة مطلوب   
+                                    </p></div>
+</textarea>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+                    <div class="row justify-content-end " style="margin-top: 50px;">
+                        <div class="col-5  "><button type="reset" class="btn  rounded-4  " value="cancel"
+                                (click)="cancelpost()"
+                                style=" margin-left: 20px; background-color: rgba(255, 202, 0, 1);width: 80px;height: 40px;box-shadow:0 4px 4px 0 rgba(0,0,0,0.25);  ">إلغاء</button>
+                        </div>
+                        <div class="col-5"><button type="submit" class="btn  rounded-4  " value="submit"
+                                (click)="publish()"
+                                style="margin-left: -10px; background-color: rgba(255, 202, 0, 1);width: 80px ;height: 40px;box-shadow:0 4px 4px 0 rgba(0,0,0,0.25);  ">نشر</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- <div class="text-danger">
+    <h3>to be removed[for test]:</h3>
+    {{orderForm.value |json }}
+</div>
+
+<h1>ggg</h1>
+<div>{{orderForm.get('max_date')?.errors|json}}</div>
+<div>{{max_date?.errors|json}}</div>
+
+<h3>sdfg</h3>
+
+<div>{{orderForm.get('type')?.errors|json}}</div>
+<div>{{type?.errors|json}}</div>
+<h3>jjjjj</h3>
+<div>{{orderForm.get('title')?.errors|json}}</div>
+<div>{{title?.errors|json}}</div>
+<h3>sssss</h3>
+<div>{{orderForm.get('description')?.errors|json}}</div>
+<div>{{description?.errors|json}}</div>
+<div></div> -->

@@ -1,0 +1,63 @@
+.btn {
+    background-color: FFCA00;
+    border-color: FFCA00;
+    
+} 
+.btn:hover {
+    background-color: EFBE04;
+    border-color: EFBE04;
+    
+} 
+.saveorder {
+    background-color: D9D9D9;
+    border-color: D9D9D9;
+    color:black;
+}
+.saveorder:hover {
+    background-color: D0CECE;
+    border-color: D0CECE;
+}
+.line {
+    border-right: 2px solid #333;
+}
+.text-custom-color {
+    color:9C9C9C;
+}
+.icon {
+    color:9C9C9C;
+}
+.tag {
+    color:black;
+    background-color: D9D9D9;
+    border-radius: 25%;
+    border-collapse: collapse;
+    padding-left: 15%;
+    padding-right: 15%;
+
+}
+.tag:hover {
+    color:black;
+    background-color: D0CECE;
+    border-color: D0CECE;
+    border-radius: 25%;
+    border-collapse: collapse;
+    padding-left: 15%;
+    padding-right: 15%;
+
+}
+.tag:active {
+    color:black;
+    background-color: D0CECE;
+    border-color: D0CECE;
+    border-radius: 25%;
+    border-collapse: collapse;
+    padding-left: 15%;
+    padding-right: 15%;
+
+}
+/* .icon:hover{
+    content: attr(title);
+    background-color: beige;
+    color: black;
+    padding: 5px;
+} */

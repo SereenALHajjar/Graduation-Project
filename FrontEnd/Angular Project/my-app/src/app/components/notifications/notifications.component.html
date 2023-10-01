@@ -1,0 +1,66 @@
+<div class="container-fluid" style="height: 900px;">
+
+  <div class="row">
+    <div class="col-lg-7 col-md-12 col-sm-12 order-2">
+      <div class="card rounded-5 gray">
+        <div class="card-body">
+          <h3 class="text-align">إشعاراتك</h3>
+          <br><br>
+          <!--notification-->
+          <ng-container *ngFor="let notif of notifList">
+            <div class="card pt-1 mt-3 pe-1 shadow border gray rounded-5 mb-3" >
+              <div class="card-body  text-end " >
+                <div class="row justify-content-end ">
+                  <div class="col-lg-4 order-lg-3 order-2" style="width:60">
+                    <img src="assets/download (1).jpg" class="rounded-circle profile">
+                  </div>
+                  <div class="col-lg-4 order-lg-2 order-1 row " style="width:55%">
+                    <div class="col-lg-12">{{notif.userName}} </div>
+                    <div class="col-lg-12"> {{notif.rate  | number :'1.0-2'}} </div>
+                  </div>
+                  <div class="col-lg-4 order-lg-1 order-3 pe-6 text-sm-right text-lg-start text-md-end" style="text-align:end;">
+                    <p> {{getDurationDate(notif.pub_date)}} منذ </p>
+                  </div>                              
+                </div>
+                <div class="row pt-3 pb-2">
+                  <p class="card-text ">   اطلعت على طلبك  
+                    <b> {{notif.title}} </b>
+                      ويسرني العمل معكم حسب متطلباتكم و يبقى التواصل مستمر  </p>
+                </div>
+                
+                <div class="row justify-content-end">
+                  <div class="col-lg-12  row justify-content-end pb-1">
+                    <div class="col-lg-6 col-md-3 col-xs-6 order-sm-2 order-md-2order-xs-2 order-lg-2" style="width: 180;">المبلغ المعروض</div>
+                    <div class="col-lg-6 col-md-3 col-xs-6 order-sm-1 order-md-1 order-lg-1">{{notif.amount}} SYR</div>
+                  </div>
+                  <div class="col-lg-12 row justify-content-end ">
+                    <div class="col-lg-4 col-sm-3 order-sm-2 order-lg-2 " style="width: 180;">بتاريخ التسليم </div>
+                    <div class="col-lg-4 col-sm-3 order-sm-1  order-lg-1"> {{notif.max_date}} </div>
+                  </div>
+                </div>              
+                <div class=" row justify-content-end pt-3 pb-3">
+                  <div class="col-auto md-auto sm-auto me-auto  order-1">
+                    <span class="px-2"><a (click)="accepte(notif.offer_id)" [routerLink]="['/chat',notif.user_id]" class="btn btn-primary  shadow-sm accept rounded-5">موافقة  </a></span>
+                    <span class="px-2"><a (click)="delete(notif.offer_id)" class="btn btn-primary text-left shadow-sm refus rounded-5 ">رفض </a></span> 
+                  
+                  </div>  
+                </div>
+            
+          </div>
+          </div>
+          </ng-container>
+          
+            
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 d-none d-lg-block order-1  ">
+      <img src="assets/amico.png" class="position-fixed  img-fluid  pt-5 mt-3   ms-md-1 p-md-1 " alt="login" style="width: 40%; max-width: 60%; height: auto;">
+    </div>
+    
+  </div> 
+
+
+
+
+</div>

@@ -1,0 +1,144 @@
+<div>
+    <div class="row " style="height:600px;">
+
+
+
+        <div class="container  col-8 mt-2 ml-3 order-2 order-md-2 order-lg-1" style="  overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 550px;
+    height: 300px; ">
+
+            <!-- <div class="row">
+                <div class="div col-2">
+                    <section>
+                        <div style=" margin-top: 10px; margin-left: 400px;" class="wrapper rounded-circle">
+                            <img height="100" src="../../../assets/profile_photo2.jpg" class="profilePic" />
+                        </div>
+                    </section>
+                </div>
+
+                <div style="margin-bottom: 100px;" class="div col-6 ">
+                    <p>محمد المحمد </p>
+                </div>
+
+
+
+            </div> -->
+            <div class="div row">
+
+            <div  class=" pt-5 div col">
+               <p  style="margin-bottom: 0px;   margin-left: 300px;  " > {{myPost.fname}} {{myPost.lname}} </p>
+               <p  style="margin-top: 2px; margin-left: 360px; "  > {{rate.rate |number:'1.0-2' }} </p>
+            </div>
+            <div style=" margin-top: 10px; margin-right: 10px; " class="wrapper rounded-circle">
+                <img height="100"   src="../../../assets/download (1).jpg" class="profilePic" />
+            </div>
+
+            </div>
+
+            <div class="div row justify-content-end" style="margin-top: 20px">
+                <div class="col-2 " style="margin-right: -50px;">عرض</div>
+                <div class="col-2 " style="margin-right: -50px;"> {{myPost.cnt}} </div>
+
+                <div class="col-4 ">:عدد العروض المقدمة</div>
+            </div>
+
+
+            <!--            
+            <div class="row " style="margin-left: 100px;">
+                 <div class="col-3" style="color: red;">تم الرفض</div> -->
+            <!-- <div class="col-2 ">  </div> -->
+            <!-- <div class="col-4 " style="margin-left: -25px;">{{ OfferCardObj.max_date | date:'yyyy-MM-dd' }} </div> -->
+            <!-- <div class="col-3">300.255SYP</div>
+                <p class="col-8">:العرض المقدم</p>
+              
+            </div>  -->
+            <div class="div row justify-content-end" style="margin-top: 20px">
+                <div class="col-4 " style="margin-right: -50px;"> {{myPost.avg | number:'1.0-2'}} SYP </div>
+                <!-- <div class="col-2 " style="margin-right: -50px;">SYP</div> -->
+
+                <div class="col-3 mx-3 ">: متوسط العروض</div>
+            </div>
+        </div>
+
+
+        <div class="container col-4 mt-2 order-1 order-md-1 order-lg-2" style="   overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 950px;
+    height: fit-content; ">
+            <div class="row ">
+                <h2 class="pt-3" style="text-align: right;"> {{myPost.title}} </h2>
+            </div>
+
+            <div class="row mt-3">
+                <p style="  text-align: right;"> {{myPost.description}}
+
+
+                </p>
+                <div class="row justify-content-end   p-3">
+                    <ng-container *ngFor="let tag of myPost.type" >
+                        <div style="margin-top: 10px; align-items:self-end" class=" pb-2 col-lg-3 col-sm-3 col-md-1  mt-sm-1">
+                          <span  class="tag rounded">{{tag}} </span>
+                        </div>
+                      </ng-container>
+                    <!-- <div style="margin-top: 10px;" class="  col-lg-1 col-sm-3 col-md-1  mt-sm-1  ">
+                        <span class="tag rounded">web</span>
+                    </div>
+                    <div  style="margin-top: 10px;" class="col-lg-1 col-sm-2 col-md-1  mt-sm-1 ">
+                        <span class="tag rounded ">figma</span>
+                    </div>
+                    <div  style="margin-top: 10px;" class="col-lg-2 col-sm-3 col-md-2  mt-sm-1 ">
+                        <span class="tag rounded ">12/1/2020</span>
+                    </div> -->
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                <div class="row justify-content-end">
+                    <!-- <div class="col-lg-2 col-md-4 col-sm-3  order-sm-4 order-xs-2 order-2 " style="max-width:50% ;margin-right: 10px;">
+                        <span class="pe-2 text-custom-color">  {{myPost.fname}} </span>
+                        <span class="pe-2 text-custom-color"> </span>
+                        <i class="fa fa-user-o icon" aria-hidden="true"></i>
+                    </div> -->
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-3 order-sm-3 order-xs-1 order-1" style="max-width:50% ;margin-right: -50px;">
+                        <span class="pe-2 text-custom-color"> {{getDurationDate(myPost.pub_date)}} منذ   </span>
+                        <i class="fa fa-clock-o icon" aria-hidden="true"></i>
+                    </div>
+                    <!-- <div class="col-lg-1 col-md-2 col-sm-3 pl-1   order-sm-2 order-xs-4  order-4" style="max-width:50% ;margin-right: -20px;">
+                        <span class="pe-2 text-custom-color"> 50</span>
+                        <i class="fa fa-eye icon" aria-hidden="true"></i>
+
+                    </div> -->
+                    <!-- <div class="col-lg-2 col-md-2 col-sm-3   order-sm-1 order-xs-3 order-3" style="max-width:50%;margin-right: -80px;">
+                        <span class="pe-2 text-custom-color"> 100 </span>
+                        <i class="fa fa-comment-o icon" aria-hidden="true"></i>
+                    </div> -->
+                </div>
+                <div class="col-auto md-auto sm-auto me-auto  order-1">
+                    <span mat-button (click)="openDialog(postCard)" class=" mb-3 px-2 btn btn-primary  shadow-sm  rounded-3">قدم حلك </span>
+                    <!-- <span class="px-2"><a href="#" class="btn btn-primary text-left shadow-sm saveorder rounded-3 ">احفظ الخدمة </a></span>  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

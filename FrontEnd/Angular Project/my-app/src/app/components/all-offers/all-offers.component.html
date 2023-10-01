@@ -1,0 +1,140 @@
+<div>
+    <div class="row">
+
+
+
+        <div class="container  col-8 mt-2 ml-3 order-2 order-md-2 order-lg-1" style="  overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 550px;
+    height: 300px; ">
+
+<!-- <ng-container *ngFor="let offer of offersList"> -->
+<ng-container *ngFor="let card of alloffersObj.offers">
+
+
+    <div class="card pt-3 mt-3 pe-2 shadow " style="background-color: F8F8F8;">
+
+        <div class="card-body  text-end ">
+            <h5 class="card-title ">  {{card.title}} </h5>
+
+            <!-- <div class="row">
+                <p>:العرض المقدم</p>
+            </div> -->
+
+            <div class="row pt-3  " style="margin-right: -80px;">
+                <!-- <div class="col-3" ></div> -->
+                <!-- <div class="col-2 ">  </div> -->
+                
+                <div class="col-4 " style="margin-left: -25px;">{{card.max_date}}</div>
+
+                <div class="col-3"> {{card.amount}} SYP</div>
+                <div class="col-4 "> {{card.userName}}  </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+</ng-container>
+<!-- </ng-container> -->
+
+
+            <div class="div row justify-content-end" style="margin-top: 20px">
+                <!-- <div class="col-2 " style="margin-right: -50px;">عرض</div> -->
+                <!-- <div class="col-2 " style="margin-right: -50px;">300</div> -->
+
+                <!-- <div class="col-4 ">:عدد العروض المقدمة</div> -->
+            </div>
+
+
+            <div class="div row justify-content-end" style="margin-top: 20px">
+                <!-- <div class="col-2 " style="margin-right: -50px;">4000</div> -->
+                <!-- <div class="col-2 " style="margin-right: -50px;">SYP</div> -->
+
+                <!-- <div class="col-3 mx-3 ">: متوسط العروض</div> -->
+            </div>
+        </div>
+
+
+        <div class="container col-4 mt-2 order-1 order-md-1 order-lg-2" style="   overflow-x: hidden; background-color:rgba(248, 248, 248, 1);
+    border-radius: 20px;
+    width: 600px;
+    height: fit-content; ">
+            <div class="row">
+                <h2 class="text-align-content-around" style=" text-align: right;"> {{alloffersObj.title}} </h2>
+            <div class="row mt-3">
+                <h4 style="margin-left: 15px; direction: rtl;">
+                    {{alloffersObj.description}}
+                </h4>
+                <div class="row justify-content-end   p-3">
+                    <ng-container *ngFor="let tag of alloffersObj.type" >
+                        <div class=" col-lg-2 col-6 col-md-6  mt-3">
+                          <span  class="tag rounded">{{tag}} </span>
+                        </div>
+                      </ng-container>
+                    <!-- <div style="margin-top: 10px;" class="  col-lg-1 col-sm-3 col-md-1  mt-sm-1  ">
+                        <span class="tag rounded">web</span>
+                    </div>
+                    <div  style="margin-top: 10px;" class="col-lg-1 col-sm-2 col-md-1  mt-sm-1 ">
+                        <span class="tag rounded ">figma</span>
+                    </div>
+                    <div  style="margin-top: 10px;" class="col-lg-2 col-sm-3 col-md-2  mt-sm-1 ">
+                        <span class="tag rounded ">12/1/2020</span>
+                    </div> -->
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                <div class="row justify-content-end">
+                    <!-- <div class="col-lg-4 col-md-4 col-sm-3  order-sm-4 order-xs-2 order-2 " style="max-width:50%  ;margin-right: -60px;">
+                        <span class="pe-2 text-custom-color"> محمد المحمد</span>
+                        <span class="pe-2 text-custom-color"> </span>
+                        <i class="fa fa-user-o icon" aria-hidden="true"></i>
+                    </div> -->
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-3 order-sm-3 order-xs-1 order-1" style="max-width:50% ; margin-right: -45px;">
+                        <span class="pe-2 text-custom-color"> {{getDurationDate(alloffersObj.pub_date)}}  منذ   </span>
+                        <i class="fa fa-clock-o icon" aria-hidden="true"></i>
+                    </div>
+                    <!-- <div class="col-lg-2 col-md-2 col-sm-3 pl-1   order-sm-2 order-xs-4  order-4" style="max-width:50% ;">
+                        <span class="pe-2 text-custom-color"> 50</span>
+                        <i class="fa fa-eye icon" aria-hidden="true"></i>
+
+                    </div> -->
+                    <div class="col-lg-2 col-md-2 col-sm-3   order-sm-1 order-xs-3 order-3" style="max-width:50%; margin-right: -25px;">
+                        <span class="pe-2 text-custom-color"> {{alloffersObj.numberOfOrders}} </span>
+                        <i class="fa fa-comment-o icon" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-auto md-auto sm-auto me-auto  order-1">
+                    <span class="px-2 btn btn-primary  shadow-sm mb-4 rounded-3">قدم عرضك </span>
+                    <!-- <span class="px-2"><a href="#" class="btn btn-primary text-left shadow-sm saveorder rounded-3 ">احفظ الخدمة </a></span>  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
